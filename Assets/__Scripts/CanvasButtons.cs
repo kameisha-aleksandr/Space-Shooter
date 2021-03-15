@@ -5,15 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class CanvasButtons : MonoBehaviour
 {
-    private GameObject btnPlay, btnPause, btnRestart;
+    private GameObject btnPlay, btnPause, btnRestart, btnHome;
     void Awake()
     {
         btnPlay = transform.Find("Play").gameObject;
         btnPause = transform.Find("Pause").gameObject;
         btnRestart = transform.Find("Restart").gameObject;
+        btnHome = transform.Find("Home").gameObject;
         btnPause.SetActive(true);
         btnPlay.SetActive(false);
         btnRestart.SetActive(false);
+        btnHome.SetActive(false);
     }
 
     public void RestartGame()
@@ -27,6 +29,7 @@ public class CanvasButtons : MonoBehaviour
         btnPause.SetActive(true);
         btnPlay.SetActive(false);
         btnRestart.SetActive(false);
+        btnHome.SetActive(false);
     }
     public void PauseGame()
     {
@@ -34,6 +37,12 @@ public class CanvasButtons : MonoBehaviour
         btnPause.SetActive(false);
         btnPlay.SetActive(true);
         btnRestart.SetActive(true);
+        btnHome.SetActive(true);
+    }
+    public void ExitGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
